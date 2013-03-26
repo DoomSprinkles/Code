@@ -3,53 +3,62 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Stan-derp by Liamraystanley</title>
-
+    <title>Code by Liamraystanley</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
-    <div class="wrapper">
+
       <header>
-        <h1 class="header">Stan-derp</h1>
-        <p class="header">Stan-Derp - Python IRC Bot</p>
-
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/Liamraystanley/Stan-Derp/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/Liamraystanley/Stan-Derp/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/Liamraystanley/Stan-Derp">View On GitHub</a></li>
-        </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Liamraystanley">Liamraystanley</a></p>
-
-
+        <h1>Code</h1>
+        <p>Code - Python IRC Bot</p>
       </header>
-      <section>
-        <h1>Stan-Derp the flexible Python IRC Bot</h1>
 
-<p>Stan-Derp (Or known as Code on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Stan-Derp can run on any operating system that supports Python 2.4 or higher.</p>
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/Liamraystanley/Code" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/Liamraystanley/Code/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/Liamraystanley/Code/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Code the flexible Python IRC Bot</h1>
+
+<p>Code (on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Code can run on any operating system that supports Python 2.4 or higher.</p>
 
 <h2>Features</h2>
 
-<hr><p>Stan-Derp is packed full of features ranging from raw IRC functions to modules that can be unloaded and loaded with ease. Some features include:</p>
+<hr><p>Code is packed full of features ranging from raw IRC functions to modules that can be unloaded and loaded with ease. Some features include:</p>
 
 <p>Fast &amp; Light Weight</p>
 
 <ul>
-<li>Stan-Derp is very small, so it won't take up resources. Also, Stan-Derp is very responsive and quick-paced! Also he can run in 1-2 processes!</li>
+<li>Code is very small, so it won't take up resources. Also, Code is very responsive and quick-paced! Also he can run in 1-2 processes!</li>
 </ul><p>Load &amp; Unload Modules</p>
 
 <ul>
-<li>Stan-Derp has the ability to load user defined IRC modules, that are pre-made or ones that you create. Stan-Derp also can live-reload modules for active and fast development.</li>
+<li>Code has the ability to load user defined IRC modules, that are pre-made or ones that you create. Code also can live-reload modules for active and fast development.</li>
 </ul><p>Very User Friendly</p>
 
 <ul>
-<li>It is very easy to install and run Stan-Derp, even if you have no knowledge of ever running a IRC bot before. ".help" commands, and friendly responses help everything feel smooth and elegant.</li>
+<li>It is very easy to install and run Code, even if you have no knowledge of ever running a IRC bot before. ".help" commands, and friendly responses help everything feel smooth and elegant.</li>
 </ul><p>Easy-To-use API</p>
 
 <ul>
@@ -57,32 +66,32 @@
 </ul><p>Open-Source</p>
 
 <ul>
-<li>Found a bug, feature, or technical support/advice? You can always navigate to the <a href="https://github.com/Liamraystanley/Stan-Derp">Github</a> page to make requests and post bugs. Heck, even fork Stan-Derp as your own and make your own modifications!</li>
+<li>Found a bug, feature, or technical support/advice? You can always navigate to the <a href="https://github.com/Liamraystanley/Code">Github</a> page to make requests and post bugs. Heck, even fork Code as your own and make your own modifications!</li>
 </ul><p>Configuration</p>
 
 <ul>
-<li>By default, Stan-Derp has the ability to change his username (including NickServ Authentication), server (including server password), and excluded channel/modules.</li>
+<li>By default, Code has the ability to change his username (including NickServ Authentication), server (including server password), and excluded channel/modules.</li>
 </ul><h1>Installation - How do I install?</h1>
 
 <hr><blockquote>
 <p>for rss.py to work, install feedparser via your pip/yum/other package installer.</p>
 </blockquote>
 
-<p>1) Run ./standerp - this creates a default config file 
-2) Edit ~/.standerp/default.py 
-3) Run ./standerp- this now runs standerp with your settings </p>
+<p>1) Run ./code - this creates a default config file 
+2) Edit ~/.code/default.py 
+3) Run ./code- this now runs code with your settings </p>
 
 <p>Full command would be: </p>
 
-<pre><code>python ./standerp
-home/standerp/lib/python272 ./standerp
+<pre><code>python ./code
+home/code/lib/python272 ./code
 </code></pre>
 
 <p>(full path purposes) </p>
 
-<p>If you wish to run Stan-Derp on a UNIX shell, the best thing to do would be to fork it to the background process usign nohup, you do this by execution python/Stan-Derp with: </p>
+<p>If you wish to run Code on a UNIX shell, the best thing to do would be to fork it to the background process usign nohup, you do this by execution python/Code with: </p>
 
-<pre><code>nohup python ./standerp &amp;
+<pre><code>nohup python ./code &amp;
 </code></pre>
 
 <p>The <code>nohup</code> and <code>&amp;</code> play a crucial part in forking itself to the background. If this method 'still' doesn't work, you need to try these commands. (you need to use the method above, THEN cancel out of the current process (I use CTRL+C on windows keyboards)) </p>
@@ -93,33 +102,33 @@ disown -h
 
 <p>Another method of forking it into the background, is by using the well-known linux program called screen.</p>
 
-<pre><code>screen python ./standerp
+<pre><code>screen python ./code
 </code></pre>
 
 <p>This creates a terminal window that can be logged into and out without disturbing the process in that window. to exit the screen safely, hit <code>CTRL+A</code> then <code>CTRL+D</code>.
-To log back into, and view the playback of Stan-Derp, type <code>screen -r</code>.</p>
+To log back into, and view the playback of Code, type <code>screen -r</code>.</p>
 
 <h1>Configuration &amp; Personalization </h1>
 
-<hr><p>Warning! Once you install Stan-Derp using the method above, you need to configure him to point to the server you wish to connect him to, as well as add a module path, and administrators/owners.</p>
+<hr><p>Warning! Once you install Code using the method above, you need to configure him to point to the server you wish to connect him to, as well as add a module path, and administrators/owners.</p>
 
 <h2>Unix &amp; Unix-like OS: </h2>
 
-<p>Edit the file located at <code>../.standerp/default.py</code>. this is either the previous directory, or your $HOME directory <code>/home/(user)</code>.</p>
+<p>Edit the file located at <code>../.code/default.py</code>. this is either the previous directory, or your $HOME directory <code>/home/(user)</code>.</p>
 
 <h2>Windows</h2>
 
 <p>Edit the file located in your Documents folder, which should be located at: 
-<code>C:\\users\myusername\.standerp\default.py</code>
+<code>C:\\users\myusername\.code\default.py</code>
 <code>default.py</code> might be located in the same spot as the UNIX location listed above.
 You should see a file like this:</p>
 
-<pre><code># Stan-Derp Copyright (C) 2012-2013 Liam Stanley
+<pre><code># Code Copyright (C) 2012-2013 Liam Stanley
 # Uncomment things you wish to add to the file
 # lines with "#" in front of them are comments
 
 # irc bot nickname
-nick = 'standerp'
+nick = 'code'
 # irc server host
 host = 'irc.example.net'
 # port to use to connect
@@ -129,14 +138,14 @@ channels = ['#example', '#test']
 #your nickname for use in admin functions
 owner = 'yournickname'
 # website to show for help documentation
-website = 'http://standerp.liamstanley.net'
+website = 'http://code.liamstanley.net'
 
 # password is the Nickserv password, serverpass is the server password
 # password = 'example'
 # serverpass = 'serverpass'
 
 # These are people who will be able to use admin.py's functions...
-admins = [owner, 'stanlee', 'someoneyoutrust']
+admins = [owner, 'someoneyoutrust']
 # But admin.py is disabled by default, as follows:
 exclude = ['admin', 'mcbot', 'rss', 'twss']
 
@@ -166,7 +175,7 @@ external = {
 <hr><p>Changing Prefix: 
 (this would be in the config, i jsut haven't gotten aroudn to it yet. sorry!)</p>
 
-<p>If you wish to change the command prefix from "." to another item Edit /standerp/standerp and find this: 
+<p>If you wish to change the command prefix from "." to another item Edit /code/code and find this: 
 if not hasattr(module, 'prefix'):</p>
 
 <p>module.prefix = r'.'</p>
@@ -178,7 +187,7 @@ if not hasattr(module, 'prefix'):</p>
 
 <h2>Licensing</h2>
 
-<hr><p>Stan-Derp Copyright (C) 2012-2013 Liam Stanley (More info here: <a href="http://standerp.liamstanley.net/#license">http://standerp.liamstanley.net/#license</a>)</p>
+<hr><p>Code Copyright (C) 2012-2013 Liam Stanley (More info here: <a href="http://code.liamstanley.net/#license">http://code.liamstanley.net/#license</a>)</p>
 
 <pre><code>This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -195,10 +204,11 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 </code></pre>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p>Project maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    
   </body>
 </html>
