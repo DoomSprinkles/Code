@@ -62,13 +62,123 @@
 
 <ul>
 <li>By default, Stan-Derp has the ability to change his username (including NickServ Authentication), server (including server password), and excluded channel/modules.</li>
-</ul><h2>Information</h2>
+</ul><h1>Installation - How do I install?</h1>
 
-<hr><p>For more information, configuration, and installation instructions, please visit <a href="http://standerp.liamstanley.net">http://standerp.liamstanley.net</a></p>
-
+<hr><blockquote>
 <p>for rss.py to work, install feedparser via your pip/yum/other package installer.</p>
+</blockquote>
 
-<p>Stan-Derp Copyright (C) 2012-2013 Liam Stanley (More info here: <a href="http://standerp.liamstanley.net/#license">http://standerp.liamstanley.net/#license</a>)</p>
+<p>1) Run ./standerp - this creates a default config file 
+2) Edit ~/.standerp/default.py 
+3) Run ./standerp- this now runs standerp with your settings </p>
+
+<p>Full command would be: </p>
+
+<pre><code>python ./standerp
+home/standerp/lib/python272 ./standerp
+</code></pre>
+
+<p>(full path purposes) </p>
+
+<p>If you wish to run Stan-Derp on a UNIX shell, the best thing to do would be to fork it to the background process usign nohup, you do this by execution python/Stan-Derp with: </p>
+
+<pre><code>nohup python ./standerp &amp;
+</code></pre>
+
+<p>The <code>nohup</code> and <code>&amp;</code> play a crucial part in forking itself to the background. If this method 'still' doesn't work, you need to try these commands. (you need to use the method above, THEN cancel out of the current process (I use CTRL+C on windows keyboards)) </p>
+
+<pre><code>bg
+disown -h
+</code></pre>
+
+<p>Another method of forking it into the background, is by using the well-known linux program called screen.</p>
+
+<pre><code>screen python ./standerp
+</code></pre>
+
+<p>This creates a terminal window that can be logged into and out without disturbing the process in that window. to exit the screen safely, hit <code>CTRL+A</code> then <code>CTRL+D</code>.
+To log back into, and view the playback of Stan-Derp, type <code>screen -r</code>.</p>
+
+<h1>Configuration &amp; Personalization </h1>
+
+<hr><p>Warning! Once you install Stan-Derp using the method above, you need to configure him to point to the server you wish to connect him to, as well as add a module path, and administrators/owners.</p>
+
+<h2>Unix &amp; Unix-like OS: </h2>
+
+<p>Edit the file located at <code>../.standerp/default.py</code>. this is either the previous directory, or your $HOME directory <code>/home/(user)</code>.</p>
+
+<h2>Windows</h2>
+
+<p>Edit the file located in your Documents folder, which should be located at: 
+<code>C:\\users\myusername\.standerp\default.py</code>
+<code>default.py</code> might be located in the same spot as the UNIX location listed above.
+You should see a file like this:</p>
+
+<pre><code># Stan-Derp Copyright (C) 2012-2013 Liam Stanley
+# Uncomment things you wish to add to the file
+# lines with "#" in front of them are comments
+
+# irc bot nickname
+nick = 'standerp'
+# irc server host
+host = 'irc.example.net'
+# port to use to connect
+port = '6667'
+#channels to auto-join
+channels = ['#example', '#test']
+#your nickname for use in admin functions
+owner = 'yournickname'
+# website to show for help documentation
+website = 'http://standerp.liamstanley.net'
+
+# password is the Nickserv password, serverpass is the server password
+# password = 'example'
+# serverpass = 'serverpass'
+
+# These are people who will be able to use admin.py's functions...
+admins = [owner, 'stanlee', 'someoneyoutrust']
+# But admin.py is disabled by default, as follows:
+exclude = ['admin', 'mcbot', 'rss', 'twss']
+
+# If you want to enumerate a list of modules rather than disabling
+# some, use "enable = ['example']", which takes precedent over exclude
+# 
+# enable = []
+
+# Directories to load user modules from
+# e.g. /path/to/my/modules
+extra = []
+
+# Services to load: maps channel names to white or black lists
+external = { 
+  '#ponycode': ['!'], # allow all
+  '#L': [], # allow none
+  '*': ['!'] # default whitelist, allow all
+}
+
+# EOF
+</code></pre>
+
+<p>you should uncomment, and replace the necessary items (like serverpass &amp; nickservpass) to run your bot. </p>
+
+<h1>Customize Even More: </h1>
+
+<hr><p>Changing Prefix: 
+(this would be in the config, i jsut haven't gotten aroudn to it yet. sorry!)</p>
+
+<p>If you wish to change the command prefix from "." to another item Edit /standerp/standerp and find this: 
+if not hasattr(module, 'prefix'):</p>
+
+<p>module.prefix = r'.'</p>
+
+<p>And change it to: 
+if not hasattr(module, 'prefix'):</p>
+
+<p>module.prefix = r'(CustomPrefix)'</p>
+
+<h2>Licensing</h2>
+
+<hr><p>Stan-Derp Copyright (C) 2012-2013 Liam Stanley (More info here: <a href="http://standerp.liamstanley.net/#license">http://standerp.liamstanley.net/#license</a>)</p>
 
 <pre><code>This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
