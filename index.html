@@ -3,34 +3,37 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <title>Code by Liamraystanley</title>
   </head>
 
   <body>
-    <header>
+    <div id="container">
       <div class="inner">
-        <h1>Code</h1>
-        <h2>Code - Python IRC Bot</h2>
-        <a href="https://github.com/Liamraystanley/Code" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>Code the flexible Python IRC Bot</h1>
+        <header>
+          <h1>Code</h1>
+          <h2>Code - Python IRC Bot</h2>
+        </header>
 
-<p>Build state: <a href="https://travis-ci.org/Liamraystanley/Code"><img src="https://travis-ci.org/Liamraystanley/Code.png?branch=master" alt="Build Status"></a></p>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Liamraystanley/Code/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Liamraystanley/Code/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Liamraystanley/Code" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>Code the flexible Python IRC Bot </h1>
+
+<p>Build State: <a href="http://build.liamstanley.net/job/Code/"><img src="http://build.liamstanley.net/job/Code/badge/icon" alt="Build Status"></a></p>
 
 <p>Code (on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Code can run on any operating system that supports Python 2.4 or higher.</p>
 
@@ -62,7 +65,7 @@
 
 <ul>
 <li>By default, Code has the ability to change his username (including NickServ Authentication), server (including server password), and excluded channel/modules.</li>
-</ul><h1>Installation - How do I install?</h1>
+</ul><h1>Installation - How do I install? </h1>
 
 <hr><blockquote>
 <p>for rss.py to work, install feedparser via your pip/yum/other package installer.</p>
@@ -114,50 +117,50 @@ To log back into, and view the playback of Code, type <code>screen -r</code>.</p
 <code>default.py</code> might be located in the same spot as the UNIX location listed above.
 You should see a file like this:</p>
 
-<pre><code># Code Copyright (C) 2012-2013 Liam Stanley
-# Uncomment things you wish to add to the file
-# lines with "#" in front of them are comments
+<div class="highlight"><pre><span class="c"># Code Copyright (C) 2012-2013 Liam Stanley</span>
+<span class="c"># Uncomment things you wish to add to the file</span>
+<span class="c"># lines with "#" in front of them are comments</span>
 
-# irc bot nickname
-nick = 'code'
-# irc server host
-host = 'irc.example.net'
-# port to use to connect
-port = '6667'
-#channels to auto-join
-channels = ['#example', '#test']
-#your nickname for use in admin functions
-owner = 'yournickname'
-# website to show for help documentation
-website = 'http://code.liamstanley.net'
+<span class="c"># irc bot nickname</span>
+<span class="n">nick</span> <span class="o">=</span> <span class="s">'code'</span>
+<span class="c"># irc server host</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'irc.example.net'</span>
+<span class="c"># port to use to connect</span>
+<span class="n">port</span> <span class="o">=</span> <span class="s">'6667'</span>
+<span class="c">#channels to auto-join</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s">'#example'</span><span class="p">,</span> <span class="s">'#test'</span><span class="p">]</span>
+<span class="c">#your nickname for use in admin functions</span>
+<span class="n">owner</span> <span class="o">=</span> <span class="s">'yournickname'</span>
+<span class="c"># website to show for help documentation</span>
+<span class="n">website</span> <span class="o">=</span> <span class="s">'http://code.liamstanley.net'</span>
 
-# password is the Nickserv password, serverpass is the server password
-# password = 'example'
-# serverpass = 'serverpass'
+<span class="c"># password is the Nickserv password, serverpass is the server password</span>
+<span class="c"># password = 'example'</span>
+<span class="c"># serverpass = 'serverpass'</span>
 
-# These are people who will be able to use admin.py's functions...
-admins = [owner, 'someoneyoutrust']
-# But admin.py is disabled by default, as follows:
-exclude = ['admin', 'mcbot', 'rss', 'twss']
+<span class="c"># These are people who will be able to use admin.py's functions...</span>
+<span class="n">admins</span> <span class="o">=</span> <span class="p">[</span><span class="n">owner</span><span class="p">,</span> <span class="s">'someoneyoutrust'</span><span class="p">]</span>
+<span class="c"># But admin.py is disabled by default, as follows:</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'mcbot'</span><span class="p">,</span> <span class="s">'rss'</span><span class="p">,</span> <span class="s">'twss'</span><span class="p">]</span>
 
-# If you want to enumerate a list of modules rather than disabling
-# some, use "enable = ['example']", which takes precedent over exclude
-# 
-# enable = []
+<span class="c"># If you want to enumerate a list of modules rather than disabling</span>
+<span class="c"># some, use "enable = ['example']", which takes precedent over exclude</span>
+<span class="c"># </span>
+<span class="c"># enable = []</span>
 
-# Directories to load user modules from
-# e.g. /path/to/my/modules
-extra = []
+<span class="c"># Directories to load user modules from</span>
+<span class="c"># e.g. /path/to/my/modules</span>
+<span class="n">extra</span> <span class="o">=</span> <span class="p">[]</span>
 
-# Services to load: maps channel names to white or black lists
-external = { 
-  '#ponycode': ['!'], # allow all
-  '#L': [], # allow none
-  '*': ['!'] # default whitelist, allow all
-}
+<span class="c"># Services to load: maps channel names to white or black lists</span>
+<span class="n">external</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s">'#ponycode'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">],</span> <span class="c"># allow all</span>
+  <span class="s">'#L'</span><span class="p">:</span> <span class="p">[],</span> <span class="c"># allow none</span>
+  <span class="s">'*'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">]</span> <span class="c"># default whitelist, allow all</span>
+<span class="p">}</span>
 
-# EOF
-</code></pre>
+<span class="c"># EOF</span>
+</pre></div>
 
 <p>you should uncomment, and replace the necessary items (like serverpass &amp; nickservpass) to run your bot. </p>
 
@@ -168,15 +171,15 @@ external = {
 
 <p>If you wish to change the command prefix from "." to another item Edit /code/code and find this: </p>
 
-<pre><code>if not hasattr(module, 'prefix'):
-    module.prefix = r'\.'
-</code></pre>
+<div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
+        <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">r'\.'</span>
+</pre></div>
 
 <p>And change it to: </p>
 
-<pre><code>if not hasattr(module, 'prefix'):
-    module.prefix = r'\(CustomPrefix)'
-</code></pre>
+<div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
+        <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">r'\(CustomPrefix)'</span>
+</pre></div>
 
 <h2>Licensing</h2>
 
@@ -197,23 +200,13 @@ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 </code></pre>
         </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/Liamraystanley/Code/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/Liamraystanley/Code/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+        <footer>
+          Code is maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-          <p class="repo-owner"><a href="https://github.com/Liamraystanley/Code"></a> is maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
+        
       </div>
     </div>
-
-  
   </body>
 </html>
