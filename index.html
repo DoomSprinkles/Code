@@ -1,43 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     <title>Code by Liamraystanley</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>Code</h1>
-          <h2>Code - Python IRC Bot</h2>
-        </header>
+      <header>
+        <h1>Code</h1>
+        <p>Code - Python IRC Bot</p>
+      </header>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/Liamraystanley/Code/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/Liamraystanley/Code/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/Liamraystanley/Code" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+      <div id="banner">
+        <span id="logo"></span>
 
-        <hr>
+        <a href="https://github.com/Liamraystanley/Code" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/Liamraystanley/Code/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/Liamraystanley/Code/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-        <section id="main_content">
-          <h1>Code the flexible Python IRC Bot </h1>
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="code-the-flexible-python-irc-bot" class="anchor" href="#code-the-flexible-python-irc-bot"><span class="octicon octicon-link"></span></a>Code the flexible Python IRC Bot</h1>
 
 <p>Build State: <a href="http://build.liamstanley.net/job/Code/"><img src="http://build.liamstanley.net/job/Code/badge/icon" alt="Build Status"></a></p>
 
 <p>Code (on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Code can run on any operating system that supports Python 2.4 or higher.</p>
 
-<h2>Features</h2>
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <hr><p>Code is packed full of features ranging from raw IRC functions to modules that can be unloaded and loaded with ease. Some features include:</p>
 
@@ -65,15 +75,20 @@
 
 <ul>
 <li>By default, Code has the ability to change his username (including NickServ Authentication), server (including server password), and excluded channel/modules.</li>
-</ul><h1>Installation - How do I install? </h1>
+</ul><h1>
+<a name="installation---how-do-i-install-" class="anchor" href="#installation---how-do-i-install-"><span class="octicon octicon-link"></span></a>Installation - How do I install? </h1>
 
 <hr><blockquote>
 <p>for rss.py to work, install feedparser via your pip/yum/other package installer.</p>
 </blockquote>
 
-<p>1) Run <code>./code</code>- this creates a default config file 
-2) Edit ~/.code/default.py 
-3) Run <code>./code</code> - this now runs code with your settings </p>
+<p><strong>If you have any isues during the install, feel free to head to <a href="http://chat.liamstanley.net/">http://chat.liamstanley.net/</a> to get help</strong></p>
+
+<p>1) Run <code>git clone https://github.com/Liamraystanley/Code.git</code> - if you do not have git installed, 
+simply install it via your package manager. e.i, <code>sudo apt-get install git</code>
+2) Run <code>./code</code>- this creates a default config file 
+3) Edit ~/.code/default.py 
+4) Run <code>./code</code> - this now runs code with your settings </p>
 
 <p>Full command would be: </p>
 
@@ -102,15 +117,18 @@ disown -h
 <p>This creates a terminal window that can be logged into and out without disturbing the process in that window. to exit the screen safely, hit <code>CTRL+A</code> then <code>CTRL+D</code>.
 To log back into, and view the playback of Code, type <code>screen -r</code>.</p>
 
-<h1>Configuration &amp; Personalization </h1>
+<h1>
+<a name="configuration--personalization-" class="anchor" href="#configuration--personalization-"><span class="octicon octicon-link"></span></a>Configuration &amp; Personalization </h1>
 
 <hr><p>Warning! Once you install Code using the method above, you need to configure him to point to the server you wish to connect him to, as well as add a module path, and administrators/owners.</p>
 
-<h2>Unix &amp; Unix-like OS: </h2>
+<h2>
+<a name="unix--unix-like-os-" class="anchor" href="#unix--unix-like-os-"><span class="octicon octicon-link"></span></a>Unix &amp; Unix-like OS: </h2>
 
 <p>Edit the file located at <code>../.code/default.py</code>. this is either the previous directory, or your $HOME directory <code>/home/(user)</code>.</p>
 
-<h2>Windows</h2>
+<h2>
+<a name="windows" class="anchor" href="#windows"><span class="octicon octicon-link"></span></a>Windows</h2>
 
 <p>Edit the file located in your Documents folder, which should be located at: 
 <code>C:\\users\myusername\.code\default.py</code>
@@ -123,40 +141,83 @@ You should see a file like this:</p>
 
 <span class="c"># irc bot nickname</span>
 <span class="n">nick</span> <span class="o">=</span> <span class="s">'code'</span>
+
 <span class="c"># irc server host</span>
 <span class="n">host</span> <span class="o">=</span> <span class="s">'irc.example.net'</span>
+
 <span class="c"># port to use to connect</span>
-<span class="n">port</span> <span class="o">=</span> <span class="s">'6667'</span>
-<span class="c">#channels to auto-join</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">6667</span>
+
+<span class="c"># channels to auto-join</span>
 <span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s">'#example'</span><span class="p">,</span> <span class="s">'#test'</span><span class="p">]</span>
-<span class="c">#your nickname for use in admin functions</span>
+
+<span class="c"># prefix for Codes commands, nothing complex. e.g one of these:</span>
+<span class="c"># . : ; " ' , &lt; &gt; - _ + = ! $ ^ *</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="s">'.'</span>
+
+<span class="c"># channels to greet users on channel join</span>
+<span class="c"># e.g "Hello Code, welcome to #Lounge!"</span>
+<span class="c"># uncomment to enable (remember this wont work with ai.py disabled.)</span>
+<span class="c">#greetchans = ['#Example', '#Hugs']</span>
+<span class="c"># exclude users from receiving a welcome message below.</span>
+<span class="c">#excludeusers = ['Serious', 'User']</span>
+
+<span class="c"># your nickname for use in admin functions</span>
+<span class="c"># You can also specify nick@hostmask</span>
+<span class="c"># For example: code@unaffiliated/code</span>
 <span class="n">owner</span> <span class="o">=</span> <span class="s">'yournickname'</span>
+
 <span class="c"># website to show for help documentation</span>
-<span class="n">website</span> <span class="o">=</span> <span class="s">'http://code.liamstanley.net'</span>
+<span class="c">#website = 'http://code.liamstanley.net'</span>
 
 <span class="c"># password is the Nickserv password, serverpass is the server password</span>
-<span class="c"># password = 'example'</span>
-<span class="c"># serverpass = 'serverpass'</span>
+<span class="c">#password = 'example'</span>
+<span class="c">#serverpass = 'serverpass'</span>
+
+<span class="c"># would you like color/bolc/italic coded commands? this enables/disables</span>
+<span class="c"># code.color/bold/italic() or any other form of carot notation applied directly by code</span>
+<span class="c"># although, if your module uses raw carot notation, then it won't disable that</span>
+<span class="n">textstyles</span> <span class="o">=</span> <span class="bp">True</span>
 
 <span class="c"># These are people who will be able to use admin.py's functions...</span>
 <span class="n">admins</span> <span class="o">=</span> <span class="p">[</span><span class="n">owner</span><span class="p">,</span> <span class="s">'someoneyoutrust'</span><span class="p">]</span>
 <span class="c"># But admin.py is disabled by default, as follows:</span>
-<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'mcbot'</span><span class="p">,</span> <span class="s">'rss'</span><span class="p">,</span> <span class="s">'twss'</span><span class="p">]</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'twss'</span><span class="p">]</span>
 
 <span class="c"># If you want to enumerate a list of modules rather than disabling</span>
 <span class="c"># some, use "enable = ['example']", which takes precedent over exclude</span>
-<span class="c"># </span>
-<span class="c"># enable = []</span>
+<span class="c">#enable = []</span>
+
+<span class="c"># Block modules from specific channels</span>
+<span class="c"># To not block anything for a channel, just don't mention it</span>
+<span class="n">excludes</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s">'##blacklist'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c"># This allows one to allow specific people to use ".msg channel message here"</span>
+<span class="c"># in specific channels.</span>
+<span class="n">helpers</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s">'#channel1'</span><span class="p">:</span> <span class="p">[</span><span class="s">'a.somedomain.tld'</span><span class="p">,</span> <span class="s">'b.anotherdomain.tld'</span><span class="p">],</span>
+   <span class="s">'##channel2'</span><span class="p">:</span> <span class="p">[</span><span class="s">'some/other/hostmask'</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c"># Channel code will report all private messages sent to him to.</span>
+<span class="c"># This includes server notices.</span>
+<span class="c">#logchan_pm = '#code-log'</span>
+
+<span class="c"># Enable raw logging of everything code sees.</span>
+<span class="c"># logged to the folder 'log'</span>
+<span class="n">logging</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="c"># Directories to load user modules from</span>
 <span class="c"># e.g. /path/to/my/modules</span>
-<span class="n">extra</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">extra</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
 
 <span class="c"># Services to load: maps channel names to white or black lists</span>
-<span class="n">external</span> <span class="o">=</span> <span class="p">{</span> 
-  <span class="s">'#ponycode'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">],</span> <span class="c"># allow all</span>
-  <span class="s">'#L'</span><span class="p">:</span> <span class="p">[],</span> <span class="c"># allow none</span>
-  <span class="s">'*'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">]</span> <span class="c"># default whitelist, allow all</span>
+<span class="n">external</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s">'#liberal'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">],</span> <span class="c"># allow all</span>
+   <span class="s">'#conservative'</span><span class="p">:</span> <span class="p">[],</span> <span class="c"># allow none</span>
+   <span class="s">'*'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">]</span> <span class="c"># default whitelist, allow all</span>
 <span class="p">}</span>
 
 <span class="c"># EOF</span>
@@ -164,10 +225,11 @@ You should see a file like this:</p>
 
 <p>you should uncomment, and replace the necessary items (like serverpass &amp; nickservpass) to run your bot. </p>
 
-<h1>Customize Even More: </h1>
+<h1>
+<a name="customize-even-more-" class="anchor" href="#customize-even-more-"><span class="octicon octicon-link"></span></a>Customize Even More: </h1>
 
 <hr><p>Changing Prefix: 
-(this would be in the config, i jsut haven't gotten aroudn to it yet. sorry!)</p>
+(this would be in the config, i just haven't gotten around to it yet. sorry!)</p>
 
 <p>If you wish to change the command prefix from "." to another item Edit /code/code and find this: </p>
 
@@ -181,7 +243,8 @@ You should see a file like this:</p>
         <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">r'\(CustomPrefix)'</span>
 </pre></div>
 
-<h2>Licensing</h2>
+<h2>
+<a name="licensing" class="anchor" href="#licensing"><span class="octicon octicon-link"></span></a>Licensing</h2>
 
 <hr><p>Code Copyright (C) 2012-2013 Liam Stanley (More info here: <a href="http://code.liamstanley.net/#license">http://code.liamstanley.net/#license</a>)</p>
 
@@ -198,15 +261,35 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 </code></pre>
-        </section>
 
-        <footer>
-          Code is maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<p>The original license from Jenni and Phenny</p>
 
-        
-      </div>
+<pre><code>   Eiffel Forum License, version 2
+
+1. Permission is hereby granted to use, copy, modify and/or
+   distribute this package, provided that:
+      * copyright notices are retained unchanged,
+      * any distribution of this package, whether modified or not,
+        includes this license text.
+2. Permission is hereby also granted to distribute binary programs
+   which depend on this package. If the binary program depends on a
+   modified version of this package, you are encouraged to publicly
+   release the modified version of this package.
+
+THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT WARRANTY. ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHORS BE LIABLE TO ANY PARTY FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THIS PACKAGE.
+</code></pre>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
     </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
