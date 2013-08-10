@@ -79,16 +79,23 @@
 <a name="installation---how-do-i-install-" class="anchor" href="#installation---how-do-i-install-"><span class="octicon octicon-link"></span></a>Installation - How do I install? </h1>
 
 <hr><blockquote>
-<p>for rss.py to work, install feedparser via your pip/yum/other package installer.</p>
+<p>for rss.py to work (only usable on linux), install feedparser via your pip/yum/other package installer.</p>
 </blockquote>
 
-<p><strong>If you have any isues during the install, feel free to head to <a href="http://chat.liamstanley.net/">http://chat.liamstanley.net/</a> to get help</strong></p>
+<p><strong>If you have any issues during the install, feel free to head to <a href="http://chat.liamstanley.net/">http://chat.liamstanley.net/</a> to get help</strong></p>
 
-<p>1) Run <code>git clone https://github.com/Liamraystanley/Code.git</code> - if you do not have git installed, 
-simply install it via your package manager. e.i, <code>sudo apt-get install git</code>
-2) Run <code>./code</code>- this creates a default config file 
-3) Edit ~/.code/default.py 
-4) Run <code>./code</code> - this now runs code with your settings </p>
+<h2>
+<a name="unix--unix-like-os-" class="anchor" href="#unix--unix-like-os-"><span class="octicon octicon-link"></span></a>Unix &amp; Unix-like OS: </h2>
+
+<pre><code>1) Make sure you have Python installed `http://www.python.org/download/releases/2.7.5/`
+   - (packaged in lots of *nix distros)
+2) Run `git clone https://github.com/Liamraystanley/Code.git`
+   - if you do not have git installed, simply install it via your package manager.
+     e.i, `sudo apt-get install git`
+3) Run `./code`- this creates a default config file 
+4) Edit ~/.code/default.py 
+5) Run `./code` - this now runs code with your settings 
+</code></pre>
 
 <p>Full command would be: </p>
 
@@ -117,13 +124,29 @@ disown -h
 <p>This creates a terminal window that can be logged into and out without disturbing the process in that window. to exit the screen safely, hit <code>CTRL+A</code> then <code>CTRL+D</code>.
 To log back into, and view the playback of Code, type <code>screen -r</code>.</p>
 
+<h2>
+<a name="windows-" class="anchor" href="#windows-"><span class="octicon octicon-link"></span></a>Windows: </h2>
+
+<pre><code>1) Make sure you have Python installed `http://www.python.org/download/releases/2.7.5/`
+2) Download Code here: `https://github.com/Liamraystanley/Code/zipball/master` and unzip it.
+3) Configure Code's default.py file, located in your user directory.
+   - This is often, `C:\\users\(your username)\.code\default.py`.
+   - Note, notepad is not prefered. If anything, use Notepad++ under windows.
+3) Now, you should be able to use run.exe (if it's in Code's directory.
+   - Else, you can open up command prompt, `cd` to Codes directory, and execute Code with `python code`.
+   - Note, if command prompt says that `python` is not a internal or external program,
+     that means Python failed to be added to your system-wide %PATH% file.
+     So, you need to add it to the %PATH% variable.
+     Feel free to google that one, Code is not noob-friendly.
+</code></pre>
+
 <h1>
 <a name="configuration--personalization-" class="anchor" href="#configuration--personalization-"><span class="octicon octicon-link"></span></a>Configuration &amp; Personalization </h1>
 
 <hr><p>Warning! Once you install Code using the method above, you need to configure him to point to the server you wish to connect him to, as well as add a module path, and administrators/owners.</p>
 
 <h2>
-<a name="unix--unix-like-os-" class="anchor" href="#unix--unix-like-os-"><span class="octicon octicon-link"></span></a>Unix &amp; Unix-like OS: </h2>
+<a name="unix--unix-like-os--1" class="anchor" href="#unix--unix-like-os--1"><span class="octicon octicon-link"></span></a>Unix &amp; Unix-like OS: </h2>
 
 <p>Edit the file located at <code>../.code/default.py</code>. this is either the previous directory, or your $HOME directory <code>/home/(user)</code>.</p>
 
@@ -131,7 +154,7 @@ To log back into, and view the playback of Code, type <code>screen -r</code>.</p
 <a name="windows" class="anchor" href="#windows"><span class="octicon octicon-link"></span></a>Windows</h2>
 
 <p>Edit the file located in your Documents folder, which should be located at: 
-<code>C:\\users\myusername\.code\default.py</code>
+<code>C:\\users\myusername\.code\default.py</code> (for Windows Vista/7/8)
 <code>default.py</code> might be located in the same spot as the UNIX location listed above.
 You should see a file like this:</p>
 
@@ -231,7 +254,8 @@ You should see a file like this:</p>
 <hr><p>Changing Prefix: 
 (this would be in the config, i just haven't gotten around to it yet. sorry!)</p>
 
-<p>If you wish to change the command prefix from "." to another item Edit /code/code and find this: </p>
+<p>If you wish to change the command prefix from "." to another item Edit /code/code and find this:
+<strong>NOTE: THIS WILL NOT CHANGE LOTS OF EXAMPLES, OR CERTAIN REGEX CHECKS. BEWARE.</strong></p>
 
 <div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
         <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">r'\.'</span>
