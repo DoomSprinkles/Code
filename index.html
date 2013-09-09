@@ -1,48 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Code by Liamraystanley</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <title>Code by Liamraystanley</title>
   </head>
+
   <body>
-
-      <header>
+    <header>
+      <div class="inner">
         <h1>Code</h1>
-        <p>Code - Python IRC Bot</p>
-      </header>
+        <h2>Code - Python IRC Bot</h2>
+        <a href="https://github.com/Liamraystanley/Code" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/Liamraystanley/Code" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/Liamraystanley/Code/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/Liamraystanley/Code/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
 <a name="code-the-flexible-python-irc-bot" class="anchor" href="#code-the-flexible-python-irc-bot"><span class="octicon octicon-link"></span></a>Code the flexible Python IRC Bot</h1>
 
-<p>Build State: <a href="http://build.liamstanley.net/job/Code/"><img src="http://build.liamstanley.net/job/Code/badge/icon" alt="Build Status"></a></p>
+<p>Build State: <a href="https://travis-ci.org/Liamraystanley/Code"><img src="https://travis-ci.org/Liamraystanley/Code.png?branch=master" alt="Build Status"></a></p>
 
 <p>Code (on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Code can run on any operating system that supports Python 2.4 or higher.</p>
 
@@ -158,7 +147,7 @@ To log back into, and view the playback of Code, type <code>screen -r</code>.</p
 <code>default.py</code> might be located in the same spot as the UNIX location listed above.
 You should see a file like this:</p>
 
-<div class="highlight"><pre><span class="c"># Code Copyright (C) 2012-2013 Liam Stanley</span>
+<div class="highlight highlight-python"><pre><span class="c"># Code Copyright (C) 2012-2013 Liam Stanley</span>
 <span class="c"># Uncomment things you wish to add to the file</span>
 <span class="c"># lines with "#" in front of them are comments</span>
 
@@ -257,13 +246,13 @@ You should see a file like this:</p>
 <p>If you wish to change the command prefix from "." to another item Edit /code/code and find this:
 <strong>NOTE: THIS WILL NOT CHANGE LOTS OF EXAMPLES, OR CERTAIN REGEX CHECKS. BEWARE.</strong></p>
 
-<div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
+<div class="highlight highlight-python"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
         <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">r'\.'</span>
 </pre></div>
 
 <p>And change it to: </p>
 
-<div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
+<div class="highlight highlight-python"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">'prefix'</span><span class="p">):</span>
         <span class="n">module</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">r'\(CustomPrefix)'</span>
 </pre></div>
 
@@ -307,13 +296,25 @@ DISCLAIMED. IN NO EVENT SHALL THE AUTHORS BE LIABLE TO ANY PARTY FOR ANY
 DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
 DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THIS PACKAGE.
 </code></pre>
-      </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
-      </footer>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Liamraystanley/Code/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Liamraystanley/Code/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Liamraystanley/Code"></a> is maintained by <a href="https://github.com/Liamraystanley">Liamraystanley</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+  
   </body>
 </html>
