@@ -41,9 +41,9 @@
         <h1>
 <a name="code-the-flexible-python-irc-bot" class="anchor" href="#code-the-flexible-python-irc-bot"><span class="octicon octicon-link"></span></a>Code the flexible Python IRC Bot</h1>
 
-<p>Build State: <a href="http://build.liamstanley.net/job/Code/"><img src="http://build.liamstanley.net/job/Code/badge/icon" alt="Build Status"></a></p>
+<p>Build State: <a href="https://travis-ci.org/Liamraystanley/Code"><img src="https://travis-ci.org/Liamraystanley/Code.png?branch=master" alt="Build Status"></a></p>
 
-<p>Code (on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Code can run on any operating system that supports Python 2.4 or higher.</p>
+<p>Code (on #L @ irc.esper.net) is a open source python IRC bot forked from Phenny/Jenni, with new modules, easier to understand commands, and easy installation! Code can run on any operating system that supports Python 2.7 or higher.</p>
 
 <h2>
 <a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
@@ -170,12 +170,12 @@ You should see a file like this:</p>
 <span class="c"># port to use to connect</span>
 <span class="n">port</span> <span class="o">=</span> <span class="mi">6667</span>
 
+<span class="c"># password is the server password. if you have a nickserv password you want to use,</span>
+<span class="c"># try to set password = 'username:pass', as most networks support nickserv via serverpass</span>
+<span class="c">#password = 'example'</span>
+
 <span class="c"># channels to auto-join</span>
 <span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s">'#example'</span><span class="p">,</span> <span class="s">'#test'</span><span class="p">]</span>
-
-<span class="c"># prefix for Codes commands, nothing complex. e.g one of these:</span>
-<span class="c"># . : ; " ' , &lt; &gt; - _ + = ! $ ^ *</span>
-<span class="n">prefix</span> <span class="o">=</span> <span class="s">'.'</span>
 
 <span class="c"># channels to greet users on channel join</span>
 <span class="c"># e.g "Hello Code, welcome to #Lounge!"</span>
@@ -189,22 +189,19 @@ You should see a file like this:</p>
 <span class="c"># For example: code@unaffiliated/code</span>
 <span class="n">owner</span> <span class="o">=</span> <span class="s">'yournickname'</span>
 
+<span class="c"># These are people who will be able to use admin.py's functions...</span>
+<span class="n">admins</span> <span class="o">=</span> <span class="p">[</span><span class="n">owner</span><span class="p">,</span> <span class="s">'someoneyoutrust'</span><span class="p">]</span>
+
 <span class="c"># website to show for help documentation</span>
 <span class="c">#website = 'http://code.liamstanley.net'</span>
-
-<span class="c"># password is the Nickserv password, serverpass is the server password</span>
-<span class="c">#password = 'example'</span>
-<span class="c">#serverpass = 'serverpass'</span>
 
 <span class="c"># would you like color/bolc/italic coded commands? this enables/disables</span>
 <span class="c"># code.color/bold/italic() or any other form of carot notation applied directly by code</span>
 <span class="c"># although, if your module uses raw carot notation, then it won't disable that</span>
 <span class="n">textstyles</span> <span class="o">=</span> <span class="bp">True</span>
 
-<span class="c"># These are people who will be able to use admin.py's functions...</span>
-<span class="n">admins</span> <span class="o">=</span> <span class="p">[</span><span class="n">owner</span><span class="p">,</span> <span class="s">'someoneyoutrust'</span><span class="p">]</span>
 <span class="c"># But admin.py is disabled by default, as follows:</span>
-<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'twss'</span><span class="p">]</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin_channel'</span><span class="p">,</span> <span class="s">'twss'</span><span class="p">]</span>
 
 <span class="c"># If you want to enumerate a list of modules rather than disabling</span>
 <span class="c"># some, use "enable = ['example']", which takes precedent over exclude</span>
@@ -233,14 +230,15 @@ You should see a file like this:</p>
 
 <span class="c"># Directories to load user modules from</span>
 <span class="c"># e.g. /path/to/my/modules</span>
-<span class="n">extra</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
+<span class="n">extra</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="c"># Only uncomment below if you use oblique.py from the unloaded file</span>
 <span class="c"># Services to load: maps channel names to white or black lists</span>
-<span class="n">external</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s">'#liberal'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">],</span> <span class="c"># allow all</span>
-   <span class="s">'#conservative'</span><span class="p">:</span> <span class="p">[],</span> <span class="c"># allow none</span>
-   <span class="s">'*'</span><span class="p">:</span> <span class="p">[</span><span class="s">'!'</span><span class="p">]</span> <span class="c"># default whitelist, allow all</span>
-<span class="p">}</span>
+<span class="c"># external = {</span>
+<span class="c">#   '#liberal': ['!'], # allow all</span>
+<span class="c">#   '#conservative': [], # allow none</span>
+<span class="c">#   '*': ['!'] # default whitelist, allow all</span>
+<span class="c">#}</span>
 
 <span class="c"># EOF</span>
 </pre></div>
