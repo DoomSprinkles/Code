@@ -67,7 +67,7 @@ def g(code, input):
         code.bot.last_seen_uri[input.sender] = uri
     elif uri is False: code.reply("Problem getting data from Google.")
     else: code.reply("No results found for '%s'." % code.color('purple',query))
-g.commands = ['g', 'search', 'google']
+g.cmds = ['g', 'search', 'google']
 g.priority = 'high'
 g.example = '.g swhack'
 g.rate = 30
@@ -80,7 +80,7 @@ def gc(code, input):
     query = query.encode('utf-8')
     num = formatnumber(google_count(query))
     code.say(query + ': ' + num)
-gc.commands = ['gc']
+gc.cmds = ['gc']
 gc.priority = 'high'
 gc.example = '.gc extrapolate'
 gc.rate = 30
@@ -108,7 +108,7 @@ def gcs(code, input):
     results = [(term, n) for (n, term) in reversed(sorted(results))]
     reply = ', '.join('%s (%s)' % (t, formatnumber(n)) for (t, n) in results)
     code.say(reply)
-gcs.commands = ['gcs', 'comp']
+gcs.cmds = ['gcs', 'comp']
 gcs.rate = 30
 
 r_bing = re.compile(r'<h3><a href="([^"]+)"')
@@ -134,7 +134,7 @@ def bing(code, input):
             code.bot.last_seen_uri = {}
         code.bot.last_seen_uri[input.sender] = uri
     else: code.reply("No results found for '%s'." % code.bold(query))
-bing.commands = ['bing']
+bing.cmds = ['bing']
 bing.example = '.bing swhack'
 bing.rate = 30
 
@@ -159,7 +159,7 @@ r_duck = re.compile(r'nofollow" class="[^"]+" href="(.*?)">')
 #            code.bot.last_seen_uri = {}
 #        code.bot.last_seen_uri[input.sender] = uri
 #    else: code.reply("No results found for '%s'." % code.bold(query))
-#duck.commands = ['duck', 'ddg'] #google function below is broken, this will suffice for now :/
+#duck.cmds = ['duck', 'ddg'] #google function below is broken, this will suffice for now :/
 #duck.rate = 30
 
 #def search(code, input):
@@ -185,7 +185,7 @@ r_duck = re.compile(r'nofollow" class="[^"]+" href="(.*?)">')
 #        result = '%s %s, %s %s, %s %s' % (gu, code.bold(code.color('blue', '(Google)')), bu, code.bold(code.color('blue', '(Bing)')), du, code.bold(code.color('blue', '(Duck)')))
 
 #    code.reply(result)
-#search.commands = ['all']
+#search.cmds = ['all']
 #search.rate = 30
 
 def suggest(code, input):
@@ -201,7 +201,7 @@ def suggest(code, input):
         else:
             code.reply(answer)
     else: code.reply(code.color('red', 'Sorry, no result.'))
-suggest.commands = ['suggest', 'sugg']
+suggest.cmds = ['suggest', 'sugg']
 suggest.rate = 30
 
 if __name__ == '__main__':

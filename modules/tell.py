@@ -106,7 +106,7 @@ def f_remind(code, input):
 
     dumpReminders(code.tell_filename, code.reminders) # @@ tell
 f_remind.rule = ('$nick', ['[tT]ell', '[aA]sk'], r'(\S+) (.*)')
-f_remind.commands = ['tell', 'to']
+f_remind.cmds = ['tell', 'to']
 
 def getReminders(code, channel, key, tellee):
     lines = []

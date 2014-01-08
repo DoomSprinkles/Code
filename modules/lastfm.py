@@ -40,7 +40,7 @@ def lastfm(code, input):
             song = re.compile(r'<title>.*?</title>').findall(data)[1]
             song = re.sub(r'\<.*?\>', '', song).strip()
             code.reply(code.color('purple', song) + code.color('red',' (via Last.Fm)'))
-lastfm.commands = ['lastfm', 'lfm']
+lastfm.cmds = ['lastfm', 'lfm']
 lastfm.example = '.lfm liamraystanley'
 lastfm.rate = 10
 

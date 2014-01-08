@@ -22,7 +22,7 @@ def addquote(code, input):
     fn.write('\n')
     fn.close()
     code.reply('Quote added.')
-addquote.commands = ['addquote']
+addquote.cmds = ['addquote']
 addquote.priority = 'low'
 addquote.example = '.addquote'
 addquote.rate = 30
@@ -52,7 +52,7 @@ def retrievequote(code, input):
     else:
         line = lines[number - 1]
         code.reply('Quote %s of %s: ' % (code.color('blue',number), code.color('blue',MAX)) + line)
-retrievequote.commands = ['quote']
+retrievequote.cmds = ['quote']
 retrievequote.priority = 'low'
 retrievequote.example = '.quote'
 retrievequote.rate = 30
@@ -85,7 +85,7 @@ def delquote(code, input):
                 fn.write('\n')
     fn.close()
     code.reply(code.color('green','Successfully deleted quote %s.' % (number)))
-delquote.commands = ['rmquote', 'delquote','deletequote','removequote']
+delquote.cmds = ['rmquote', 'delquote','deletequote','removequote']
 delquote.priority = 'low'
 delquote.example = '.rmquote'
 delquote.rate = 30

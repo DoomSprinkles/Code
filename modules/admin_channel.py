@@ -170,7 +170,7 @@ def kick(code, input):
     reason = ' '.join(text[reasonidx:])
     if nick != code.config.nick:
         code.write(['KICK', channel, nick, reason])
-kick.commands = ['kick']
+kick.cmds = ['kick']
 kick.priority = 'high'
 
 def configureHostMask (mask):
@@ -207,7 +207,7 @@ def ban(code, input):
     banmask = configureHostMask(banmask)
     if banmask == '': return
     code.write(['MODE', channel, '+b', banmask])
-ban.commands = ['ban']
+ban.cmds = ['ban']
 ban.priority = 'high'
 
 def unban(code, input):
@@ -229,7 +229,7 @@ def unban(code, input):
     banmask = configureHostMask(banmask)
     if banmask == '': return
     code.write(['MODE', channel, '-b', banmask])
-unban.commands = ['unban']
+unban.cmds = ['unban']
 unban.priority = 'high'
 
 def quiet(code, input):
@@ -251,7 +251,7 @@ def quiet(code, input):
    quietmask = configureHostMask(quietmask)
    if quietmask == '': return
    code.write(['MODE', channel, '+q', quietmask])
-quiet.commands = ['quiet','mute']
+quiet.cmds = ['quiet','mute']
 quiet.priority = 'high'
 
 def unquiet(code, input):
@@ -273,7 +273,7 @@ def unquiet(code, input):
    quietmask = configureHostMask(quietmask)
    if quietmask == '': return
    code.write(['MODE', channel, '-q', quietmask])
-unquiet.commands = ['unquiet','unmute']
+unquiet.cmds = ['unquiet','unmute']
 unquiet.priority = 'high'
 
 def kickban(code, input):
@@ -301,7 +301,7 @@ def kickban(code, input):
    if mask == '': return
    code.write(['MODE', channel, '+b', mask])
    code.write(['KICK', channel, nick, ' :', reason])
-kickban.commands = ['kickban', 'kb']
+kickban.cmds = ['kickban', 'kb']
 kickban.priority = 'high'
 
 def topic(code, input):
@@ -319,7 +319,7 @@ def topic(code, input):
     channel = input.sender
     code.write(['PRIVMSG', 'ChanServ'], 'TOPIC %s %s' % (input.sender, topic))
     return
-topic.commands = ['topic']
+topic.cmds = ['topic']
 topic.priority = 'low'
 
 if __name__ == '__main__':

@@ -51,7 +51,7 @@ def fml(code, input):
                      h.unescape(r['fml']).replace('FML',code.color('red','FML')),code.bold(r['+']), \
                      code.bold(r['-'])))
         except: return code.say('Failed to search for FML.')
-fml.commands = ['fml', 'fmylife']
+fml.cmds = ['fml', 'fmylife']
 fml.example = '.fml #12390101'
 fml.priority = 'medium'
 fml.rate = 15

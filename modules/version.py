@@ -25,7 +25,7 @@ def version(code, input):
     code.say('  ' + author)
     code.say('  ' + date)
     code.say('  ' + code.bold('Source: ') + 'https://github.com/Liamraystanley/Code/')
-version.commands = ['version']
+version.cmds = ['version']
 version.priority = 'medium'
 version.rate = 30
 

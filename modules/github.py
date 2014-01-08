@@ -75,7 +75,7 @@ def github(code, input):
         output.append('%s %s' % (response['subscribers_count'],u'\u2764'))
         output.append(response['html_url'])
         return code.say(spacer.join(output))
-github.commands = ['github','git']
+github.cmds = ['github','git']
 github.priority = 'medium'
 github.rate = '15'
 
@@ -99,7 +99,7 @@ def version(code, input):
         code.say('  ' + code.bold('Source: ') + 'https://github.com/Liamraystanley/Code/')
     except:
         code.say('%s does not use Github file management. Unable to determine version.' % code.nick)
-version.commands = ['version']
+version.cmds = ['version']
 version.priority = 'medium'
 version.rate = 30
 

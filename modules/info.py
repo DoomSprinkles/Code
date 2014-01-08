@@ -38,7 +38,7 @@ def commands(code, input):
     code.msg(input.nick, ('For help, do \'.help example\' where ' +
                           '"example" is the name of the command you want ' +
                           'help for.'))
-commands.commands = ['commands']
+commands.cmds = ['commands']
 commands.priority = 'low'
 
 def help(code, input):
@@ -65,9 +65,9 @@ def help(code, input):
             'Hi, I\'m a bot. Say "%s" to me in private for a list ' +
             'of my commands, or see %s for more general details.' +
             ' %s is my owner.')
-        code.reply(response % (code.color('purple', '.commands'),website,code.color('gold', code.config.owner)))
+        code.reply(response % (code.color('purple', '.cmds'),website,code.color('gold', code.config.owner)))
 help.priority = 'medium'
-help.commands = ['help']
+help.cmds = ['help']
 help.example = '.help fml'
 help.rate = 30
 
@@ -78,7 +78,7 @@ def about(code, input):
        'for large, and small channels. More info: http://code.liamstanley.net'
     )
     code.reply(response)
-about.commands = ['about']
+about.cmds = ['about']
 about.priority = 'low'
 about.rate = 60
 
@@ -86,7 +86,7 @@ about.rate = 60
 def issue(code, input):
     code.reply('Having an issue with ' + code.bold(code.nick) + '? Post a bug report here:')
     code.say('https://github.com/Liamraystanley/Code/issues/new')
-issue.commands = ['report','issue','bug','issues']
+issue.cmds = ['report','issue','bug','issues']
 issue.priority = 'low'
 issue.rate = 60
 
@@ -134,7 +134,7 @@ def stats(code, input):
     for count, channel in charank[:3]: 
         chreply += '%s (%s), ' % (channel, count)
     code.say(chreply.rstrip(', '))
-stats.commands = ['stats']
+stats.cmds = ['stats']
 stats.priority = 'low'
 
 if __name__ == '__main__': 

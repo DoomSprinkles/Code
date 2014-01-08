@@ -85,7 +85,7 @@ def twitter(code, input):
         code.say(format(tweet, username))
     else: code.reply("Give me a link, a username, or a tweet id")
 
-twitter.commands = ['tw', 'twitter']
+twitter.cmds = ['tw', 'twitter']
 twitter.thread = True
 
 if __name__ == '__main__':

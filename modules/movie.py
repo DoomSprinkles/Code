@@ -38,7 +38,7 @@ def movie_search(code, input):
         return code.say(' | '.join(output))
     except:
         return code.reply(error)
-movie_search.commands = ['movie', 'imdb']
+movie_search.cmds = ['movie', 'imdb']
 movie_search.example = '.movie Transformers'
 
 def movie(code, input):

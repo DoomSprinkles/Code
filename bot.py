@@ -120,7 +120,8 @@ class Code(irc.Bot):
             else: func.event = func.event.upper()
 
             if not hasattr(func, 'rate'):
-                if hasattr(func, 'commands'):
+                if hasattr(func, 'cmds'):
+                    func.commands = func.cmds
                     func.rate = 5
                 else:
                     func.rate = 0
@@ -157,7 +158,8 @@ class Code(irc.Bot):
                             regexp = re.compile(prefix + command + pattern)
                             bind(self, func.priority, regexp, func)
 
-            if hasattr(func, 'commands'):
+            if hasattr(func, 'cmds'):
+                func.commands = func.cmds
                 global cmds
                 cmds.append(func.commands[0])
                 for command in func.commands:

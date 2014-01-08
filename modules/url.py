@@ -227,7 +227,7 @@ def generateBitLy(code, input):
     idx = 7
     for b in bitly:
         displayBitLy(code, b[0], b[1])
-generateBitLy.commands = ['bitly']
+generateBitLy.cmds = ['bitly']
 generateBitLy.priority = 'high'
 
 
@@ -363,7 +363,7 @@ def show_title_demand(code, input):
         else:
             response = '(%s) - (%s)' % (code.color('blue', code.bold(returned_title)), getTLD(orig))
         code.reply(response)
-show_title_demand.commands = ['title']
+show_title_demand.cmds = ['title']
 show_title_demand.priority = 'high'
 
 if __name__ == '__main__':

@@ -24,7 +24,7 @@ def calc(code, input):
         return code.say(answer)
     except:
         return code.reply('Failed to calculate!')
-calc.commands = ['c', 'calc', 'calculate']
+calc.cmds = ['c', 'calc', 'calculate']
 calc.example = '.calc 5 + 3'
 
 def py(code, input):
@@ -49,7 +49,7 @@ def py(code, input):
     except Exception, e:
          code.reply(code.color('red', 'The server did not return an answer.'))
          print '[.py]', e
-py.commands = ['py', 'python']
+py.cmds = ['py', 'python']
 py.example = '.py print(int(1.0) + int(3))'
 
 def wa(code, input): 
@@ -61,7 +61,7 @@ def wa(code, input):
     if answer: 
         code.say(answer)
     else: code.reply('Sorry, no result.')
-wa.commands = ['wa']
+wa.cmds = ['wa']
 
 if __name__ == '__main__': 
     print __doc__.strip()

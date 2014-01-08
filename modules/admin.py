@@ -14,7 +14,7 @@ def listmods(code, input):
     if not input.admin: return
     modules = list(set(input.modules))
     code.say('Modules: ' + ', '.join(sorted(modules)) + '.')
-listmods.commands = ['modules']
+listmods.cmds = ['modules']
 listmods.priority = 'high'
 listmods.rate = 20
 
@@ -37,7 +37,7 @@ def part(code, input):
     if input.sender.startswith('#'): return
     if input.admin:
         code.write(['PART'], input.group(2))
-part.commands = ['part', 'leave']
+part.cmds = ['part', 'leave']
 part.priority = 'low'
 part.example = '.part #example'
 
@@ -48,7 +48,7 @@ def quit(code, input):
     if input.owner:
         code.write(['QUIT'], 'Terminating Bot.')
         __import__('os')._exit(0)
-quit.commands = ['quit', 'terminate', 'shutdown', 'stop']
+quit.cmds = ['quit', 'terminate', 'shutdown', 'stop']
 quit.priority = 'low'
 
 def nick(code, input):
@@ -70,7 +70,7 @@ def nick(code, input):
                 __import__('os')._exit(1)
     else:
         return
-nick.commands = ['name', 'nick', 'nickname']
+nick.cmds = ['name', 'nick', 'nickname']
 nick.priority = 'low'
 
 def msg(code, input):
@@ -115,7 +115,7 @@ def announce(code, input):
     print code.channels
     for channel in code.channels:
         code.msg(channel, code.color('purple', code.bold('[ANNOUNCMENT] ')) + input.group(2))
-announce.commands = ['announce', 'broadcast']
+announce.cmds = ['announce', 'broadcast']
 announce.example = '.announce Some important message here'
 
 def blocks(code, input):
@@ -220,7 +220,7 @@ def blocks(code, input):
     blocks.write(nicks_str)
     blocks.close()
 
-blocks.commands = ['blocks']
+blocks.cmds = ['blocks']
 blocks.priority = 'low'
 blocks.thread = False
 
@@ -250,7 +250,7 @@ def write_raw(code, input):
         status = True
     if status:
         code.reply('Message sent to server.')
-write_raw.commands = ['write', 'raw']
+write_raw.cmds = ['write', 'raw']
 write_raw.priority = 'high'
 write_raw.thread = False
 

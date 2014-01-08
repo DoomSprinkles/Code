@@ -21,7 +21,7 @@ def chuck(code, input):
                            code.color('blue',data['value']['id']),
                            h.unescape(data['value']['joke'])
                            ))
-chuck.commands = ['chuck','norris','cn','chucknorris']
+chuck.cmds = ['chuck','norris','cn','chucknorris']
 chuck.rate = 10
 
 if __name__ == '__main__':

@@ -63,7 +63,7 @@ def ip(code, input):
         response += '%s %s %s' % (spacing, code.bold(code.color('blue', 'Latitude:')), results['latitude'])
         response += '%s %s %s' % (spacing, code.bold(code.color('blue', 'Longitude:')), results['longitude'])
     code.reply(response)
-ip.commands = ['ip', 'iplookup', 'host', 'whois']
+ip.cmds = ['ip', 'iplookup', 'host', 'whois']
 ip.example = ".iplookup 8.8.8.8"
 
 if __name__ == '__main__':

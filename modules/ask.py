@@ -27,7 +27,7 @@ def ask(code, input):
             choices = choices.replace('?','')
             choices = choices.replace('!','')
             code.reply((random.choice(list_choices)).encode('utf-8'))
-ask.commands = ['ask']
+ask.cmds = ['ask']
 ask.priority = 'low'
 ask.example = '.ask today or tomorrow or next week'
 
@@ -77,7 +77,7 @@ def rand(code, input):
         return code.reply('Your random integer is: %s' % code.color('red',number))
     except:
         return code.reply(syntax)
-rand.commands = ['rand']
+rand.cmds = ['rand']
 rand.priority = 'medium'
 
 def too_long(integer):

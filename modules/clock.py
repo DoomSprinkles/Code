@@ -42,7 +42,7 @@ def get_time(code, input):
         return code.say(err)
 
         # Try to encode into
-get_time.commands = ['t','time']
+get_time.cmds = ['t','time']
 get_time.example = '.t UTC'
 
 def beats(code, input): 
@@ -50,7 +50,7 @@ def beats(code, input):
     beats = ((time.time() + 3600) % 86400) / 86.4
     beats = int(math.floor(beats))
     code.say('@%03i' % beats)
-beats.commands = ['beats']
+beats.cmds = ['beats']
 beats.priority = 'low'
 
 if __name__ == '__main__': 

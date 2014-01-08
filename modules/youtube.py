@@ -48,7 +48,7 @@ def get_search(code, input):
     except:
         return code.reply(code.color('red','Failed to search for %s!' % input.group(2)))
 get_search.rate = 10
-get_search.commands = ['youtube','yt','video']
+get_search.cmds = ['youtube','yt','video']
 get_search.example = '.yt PewDiePie 7'
 
 def create_response(data,url=False):

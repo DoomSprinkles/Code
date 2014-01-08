@@ -119,14 +119,14 @@ def u(code, input):
       elif len(text) <= 10: 
          code.reply(' '.join('U+%04X' % ord(c) for c in text))
       else: code.reply(code.color('red', 'Sorry, your input is too long!'))
-u.commands = ['u']
+u.cmds = ['u']
 u.example = '.u 203D'
 
 def bytes(code, input): 
    """Show the input as pretty printed bytes."""
    b = input.bytes
    code.reply('%r' % b[b.find(' ') + 1:])
-bytes.commands = ['bytes']
+bytes.cmds = ['bytes']
 bytes.example = '.bytes \xe3\x8b\xa1'
 
 if __name__ == '__main__': 

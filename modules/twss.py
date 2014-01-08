@@ -81,7 +81,7 @@ def add_twss(code, input):
         f.write(re.sub(r'[^\w\s]', '', last.lower()) + '\n')
         f.close()
     code.say('That\'s what she said.')
-add_twss.commands = ['twss']
+add_twss.cmds = ['twss']
 add_twss.priority = 'low'
 add_twss.threading = False
 

@@ -62,7 +62,7 @@ def urban(code, input):
     else:
         code.say('(%s/%s) %s: %s %s: %s' % (str(id), str(did), code.color('purple', definitive), \
                  h.unescape(definition), code.color('purple', 'Ex'), h.unescape(example)))
-urban.commands = ['urban', 'ur']
+urban.cmds = ['urban', 'ur']
 urban.example = '.urban liam'
 
 

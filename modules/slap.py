@@ -27,7 +27,7 @@ def slap(code, input):
     'into a hole, till death', 'into mid-air disintegration', \
     'into a pancake'))
     code.write(['PRIVMSG', input.sender, ' :\x01ACTION', verb, text[1], afterfact, '\x01'])
-slap.commands = ['slap', 'slaps']
+slap.cmds = ['slap', 'slaps']
 slap.priority = 'medium'
 slap.rate = 60
 

@@ -81,7 +81,7 @@ def weather(code,input):
     if 'ozone' in data:
         output.append('Ozone level: %s' % code.color('blue',data['ozone']))
     code.say(' | '.join(output))
-weather.commands = ['weather']
+weather.cmds = ['weather']
 
 def fw(code, input):
     """.fw (ZIP|City, State) -- provide a ZIP code or a city state pair to hear about the fucking weather"""
@@ -99,7 +99,7 @@ def fw(code, input):
         return code.reply(h.unescape(temp) +' '+ code.color('red',code.bold(remark)) +'. '+ flavor)
     except:
         return code.reply(code.color('red', code.bold('I CAN\'T FIND THAT SHIT.')))
-fw.commands = ['fuckingweather', 'fw']
+fw.cmds = ['fuckingweather', 'fw']
 fw.priority = 'low'
 
 if __name__ == '__main__':

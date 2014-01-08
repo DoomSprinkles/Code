@@ -11,7 +11,7 @@ import irc
 
 def f_reload_cmd(code, input):
     f_reload(code, input)
-f_reload_cmd.commands = ['rld', 'reload', 'recompile']
+f_reload_cmd.cmds = ['rld', 'reload', 'recompile']
 
 def f_reload(code, input): 
     """Reloads a module, for use by admins only.""" 
@@ -23,7 +23,7 @@ def f_reload(code, input):
 
     if (not name) or (name == '*'): 
         code.variables = None
-        code.commands = None
+        code.cmds = None
         code.setup()
         return code.reply(code.bold('Reloaded all modules.'))
 
@@ -82,7 +82,7 @@ else:
     def update(code, input):
         code.reply('You need to run me on %s to do that.' % code.bold(code.color('red', 'Python 2.7')))
 #update.rule = ('$nick', ['update'], r'(.+)')
-update.commands = ['update']
+update.cmds = ['update']
 update.rate = 30
 
 if __name__ == '__main__': 

@@ -141,7 +141,7 @@ def tr2(code, input):
         code.reply(msg)
     else: code.reply('Language guessing failed, so try suggesting one!')
 
-tr2.commands = ['tr']
+tr2.cmds = ['tr']
 tr2.priority = 'low'
 
 def mangle(code, input):
@@ -162,7 +162,7 @@ def mangle(code, input):
         __import__('time').sleep(0.5)
 
     code.reply(phrase or 'ERRORS D:')
-mangle.commands = ['mangle']
+mangle.cmds = ['mangle']
 
 if __name__ == '__main__':
     print __doc__.strip()

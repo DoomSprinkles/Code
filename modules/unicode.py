@@ -25,7 +25,7 @@ def supercombiner(code, input):
             break
     s = remove_control_chars(s)
     code.say(s)
-supercombiner.commands = ['sc']
+supercombiner.cmds = ['sc']
 supercombiner.rate = 30
 
 

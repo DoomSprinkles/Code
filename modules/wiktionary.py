@@ -88,12 +88,12 @@ def w(code, input):
    if len(result) > 300: 
       result = result[:295] + '[...]'
    code.say(result)
-w.commands = ['w','define', 'd', 'wik2', 'wiki2', 'dict']
+w.cmds = ['w','define', 'd', 'wik2', 'wiki2', 'dict']
 w.example = '.w example'
 
 def encarta(code, input): 
    return code.reply('Microsoft removed Encarta, try .w instead!')
-encarta.commands = ['wdict', 'encarta', 'wdefine']
+encarta.cmds = ['wdict', 'encarta', 'wdefine']
 
 if __name__ == '__main__': 
    print __doc__.strip()

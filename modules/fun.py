@@ -46,7 +46,7 @@ def roulette(code, input):
     else:
         nick = input.nick
     code.say('*Points gun at %s, and pulls the trigger* %s %s' % (nick, nick, response))
-roulette.commands = ['rr', 'russianroulette', 'roulette']
+roulette.cmds = ['rr', 'russianroulette', 'roulette']
 roulette.priority = 'medium'
 roulette.example = '.roulette Timothy'
 roulette.rate = 20
@@ -97,7 +97,7 @@ def sexymeter(code, input):
             nick = text[1]
         code.say('Rating %s on a scale of 1-100 of sexiness. Result: %s. %s' % (code.bold(nick), \
             code.bold(rand), code.bold(sexycomment(rand))))
-sexymeter.commands = ['sm', 'sexymeter', 'um', 'uglymeter']
+sexymeter.cmds = ['sm', 'sexymeter', 'um', 'uglymeter']
 sexymeter.priority = 'medium'
 sexymeter.example = '.sexymeter Code'
 sexymeter.rate = 20
@@ -122,7 +122,7 @@ def slap(code, input):
     'into a hole, till death', 'into mid-air disintegration', \
     'into a pancake'))
     code.write(['PRIVMSG', input.sender, ' :\x01ACTION', verb, text[1], afterfact, '\x01'])
-slap.commands = ['slap', 'slaps']
+slap.cmds = ['slap', 'slaps']
 slap.priority = 'medium'
 slap.rate = 20
 
@@ -137,7 +137,7 @@ def hug(code, input):
     types = random.choice(('hugs', 'snuggles'))
     hugtype = random.choice(('real tight', 'strongly', 'like a bear', 'tight', ''))
     code.write(['PRIVMSG', input.sender, ' :\x01ACTION', types, text[1], hugtype, '\x01'])
-hug.commands = ['hug', 'hugs']
+hug.cmds = ['hug', 'hugs']
 hug.priority = 'low'
 hug.rate = 5
 
@@ -164,7 +164,7 @@ def magic(code, input):
                        'Concentrate and ask again.'))
         response = code.color('yellow', response)
     code.say('*%s shakes the Magic 8 Ball...* %s' % (code.nick, code.bold(response)))
-magic.commands = ['8ball', '8b', 'luck', 'eightball', 'magic8']
+magic.cmds = ['8ball', '8b', 'luck', 'eightball', 'magic8']
 magic.priority = 'medium'
 magic.example = '.8ball will i feel better tomorrow?'
 magic.rate = 15
@@ -208,7 +208,7 @@ def rps(code, input):
             response = 'rock'
     return code.say('*Rock... Paper... Scissors!* You %s! %s had %s!' % (code.color(color, \
           code.bold(state)), code.nick, code.bold(response)))
-rps.commands = ['rock', 'paper', 'scissors'] #screw combining .rps (cmd) and .(cmd)
+rps.cmds = ['rock', 'paper', 'scissors'] #screw combining .rps (cmd) and .(cmd)
 rps.example = '.rock'
 rps.rate = 15
 

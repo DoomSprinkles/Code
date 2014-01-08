@@ -22,7 +22,7 @@ def lmgtfy(code, input): #needs more work for utf-8 encoding. but, meh.
         lmgtfy = lmgtfy.strip(" ")
     lmgtfyurl = "http://lmgtfy.com/?q=" + lmgtfy
     code.say(input.nick + ": " + lmgtfyurl)
-lmgtfy.commands = ['lmgtfy']
+lmgtfy.cmds = ['lmgtfy']
 lmgtfy.example = '.lmgtfy linux'
 
 if __name__ == '__main__': 

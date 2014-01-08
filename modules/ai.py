@@ -29,7 +29,7 @@ def off(code, input):
         aistate = False
     else:
         code.reply(code.bold(code.color('red', 'You are not authorized to disable this feature.')))
-off.commands = ['off']
+off.cmds = ['off']
 off.priority = 'high'
 
 def on(code, input):
@@ -39,7 +39,7 @@ def on(code, input):
         aistate = True
     else:
         code.reply(code.bold(code.color('red', 'You are not authorized to enable this feature.')))
-on.commands = ['on']
+on.cmds = ['on']
 on.priority = 'high'
 
 def state(code, input):
@@ -49,7 +49,7 @@ def state(code, input):
         code.say(code.bold(code.color('green', 'It is on.')))
     else:
         code.say(code.bold(code.color('red', 'It is off.')))
-state.commands = ['state', 'aistate']
+state.cmds = ['state', 'aistate']
 state.priority = 'high'
 
 ## Functions that do not rely on "AISTATE"
@@ -192,7 +192,7 @@ yesno.rate = 15
 
 def ping_reply(code,input):
     code.reply('PONG')
-ping_reply.commands = ['ping','lag','pong']
+ping_reply.cmds = ['ping','lag','pong']
 ping_reply.rate = 30
 
 def love(code, input):
