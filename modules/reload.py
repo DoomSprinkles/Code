@@ -50,7 +50,7 @@ def f_reload(code, input):
     modified = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(mtime))
 
     code.register(vars(module))
-    code.bind_commands()
+    code.bind_cmds()
 
     code.reply('%r (version: %s)' % (module, modified)) # no colorcodes, weird shit happens!
 f_reload.name = 'reload'

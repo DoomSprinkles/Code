@@ -6,15 +6,10 @@ info.py - Code Information Module
 http://code.liamstanley.net/
 """
 
-#def commands(code, input): 
-#   This function only works in private message
-#   if input.sender.startswith('#'):
-#       code.say(('%s: Please %s me that command.') % (input.nick, code.bold('message')))
-#   else:
-#      code.say(('The list of commands for %s is extensive, so they are now ' +
-#                  'located here: https://github.com/Liamraystanley/Code/wiki#features') % code.bold(code.nick))
-#      code.say(('For help, do \'%s: %s\' where example is the ' + 
-#                  'name of the command you want help for.') % (code.nick, code.color('green', 'help example?')))
+from tools import *
+
+@hook(['commands','cmds'])
+@rate(30)
 def commands(code, input):
     """Get a list of function-names (commands), that the bot has."""
     if input.group(2): return help(code, input)
@@ -23,24 +18,32 @@ def commands(code, input):
         code.reply('I am sending you a private message of all my commands.')
     count = 0
     cmds = []
-    commands = list(set(input.cmds))
+    commands = list(set(input.commands))
     full = len(commands)
-    code.msg(input.nick, 'Commands I recognize:')
-    for i in range(0,full-1):
+    count = 0
+    tmp = []
+    # Make a list, of lists, of lines. :)
+    for i in sorted(commands):
         count += 1
-        cmds.append(commands[i])
         if count == 40:
-            code.msg(input.nick, '# ' + ', '.join(cmds))
-            cmds = []
-            count = 0
-        elif i == full:
-            code.msg(input.nick, '# ' + ', '.join(cmds))
+            # Assume new line!
+            cmds.append(tmp)
+            tmp, count = [], 0
+            tmp.append(i)
+        else:
+            # Assume appending to tmp
+            tmp.append(i)
+    cmds.append(tmp)
+    code.msg(input.nick, 'Commands I recognize:')
+    for line in cmds:
+        code.msg(input.nick, '# %s' % (', '.join(line)))
     code.msg(input.nick, ('For help, do \'.help example\' where ' +
                           '"example" is the name of the command you want ' +
                           'help for.'))
-commands.cmds = ['commands']
-commands.priority = 'low'
 
+
+@hook(['help'], '.help fml')
+@rate(30)
 def help(code, input):
     if input.group(2):
         name = input.group(2)
@@ -66,11 +69,10 @@ def help(code, input):
             'of my commands, or see %s for more general details.' +
             ' %s is my owner.')
         code.reply(response % (code.color('purple', '.cmds'),website,code.color('gold', code.config.owner)))
-help.priority = 'medium'
-help.cmds = ['help']
-help.example = '.help fml'
-help.rate = 30
 
+
+@hook(['about','author'])
+@rate(60)
 def about(code, input):
     response = (
        code.nick + ' was developed by Liam Stanley and many others. ' + code.nick + ' is a open-source ' + 
@@ -78,18 +80,16 @@ def about(code, input):
        'for large, and small channels. More info: http://code.liamstanley.net'
     )
     code.reply(response)
-about.cmds = ['about']
-about.priority = 'low'
-about.rate = 60
 
 
+@hook(['report','issue','bug','issues'])
+@rate(60)
 def issue(code, input):
     code.reply('Having an issue with ' + code.bold(code.nick) + '? Post a bug report here:')
     code.say('https://github.com/Liamraystanley/Code/issues/new')
-issue.cmds = ['report','issue','bug','issues']
-issue.priority = 'low'
-issue.rate = 60
 
+
+@hook(['stats'])
 def stats(code, input): 
     """Show information on command usage patterns."""
     commands = {}
@@ -118,24 +118,23 @@ def stats(code, input):
     charank = sorted([(b, a) for (a, b) in channels.iteritems()], reverse=True)
 
     # most heavily used commands
-    creply = code.color('green', 'most used commands: ')
+    creply = code.color('green', 'Most used commands: ')
     for count, command in comrank[:10]: 
         creply += '%s (%s), ' % (command, count)
     code.say(creply.rstrip(', '))
 
     # most heavy users
-    reply = code.color('blue', 'power users: ')
+    reply = code.color('blue', 'Power users: ')
     for count, user in userank[:10]: 
         reply += '%s (%s), ' % (user, count)
     code.say(reply.rstrip(', '))
 
     # most heavy channels
-    chreply = code.color('purple', 'power channels: ')
+    chreply = code.color('purple', 'Power channels: ')
     for count, channel in charank[:3]: 
         chreply += '%s (%s), ' % (channel, count)
     code.say(chreply.rstrip(', '))
-stats.cmds = ['stats']
-stats.priority = 'low'
+
 
 if __name__ == '__main__': 
     print __doc__.strip()

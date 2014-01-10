@@ -7,76 +7,69 @@ http://code.liamstanley.net/
 '''
 
 import os
+#from tools import admin
+from tools import *
 
 defaultnick = None
-def listmods(code, input):
-    '''Send a list of the loaded modules ot the user.'''
-    if not input.admin: return
-    modules = list(set(input.modules))
-    code.say('Modules: ' + ', '.join(sorted(modules)) + '.')
-listmods.cmds = ['modules']
-listmods.priority = 'high'
-listmods.rate = 20
 
+
+@hook(['modules', 'mods'])
+def listmods(code, input):
+    '''Send a list of the loaded modules to the user.'''
+    modules = list(set(input.modules))
+    print input.modules
+    return code.say('Modules: %s.' % ', '.join(sorted(modules)))
+
+
+@hook(['join'], '.join #example [key]')
 def join(code, input):
     '''Join the specified channel. This is an admin-only command.'''
-    # Can only be done in privmsg by an admin
-    if input.sender.startswith('#'): return
-    if input.admin:
-        channel, key = input.group(1), input.group(2)
-        if not key:
-            code.write(['JOIN'], channel)
-        else: code.write(['JOIN', channel, key])
-join.rule = r'(?i)\.join (#\S+)(?: *(\S+))?'
-join.priority = 'low'
-join.example = '.join #example or .join #example key'
+    if not input.admin:
+        return
+    if empty(code, input): return
+    if len(input.group(2).split()) > 1: # Channel + key
+        return code.write(['JOIN', input.group(2).split(' ',1)])
+    else:
+        return code.write(['JOIN'], input.group(2).strip())
 
+
+@hook(['part'], '.part <#channel>')
 def part(code, input):
     '''Part the specified channel. This is an admin-only command.'''
-    # Can only be done in privmsg by an admin
-    if input.sender.startswith('#'): return
-    if input.admin:
-        code.write(['PART'], input.group(2))
-part.cmds = ['part', 'leave']
-part.priority = 'low'
-part.example = '.part #example'
+    return code.write(['PART', input.group(2).strip()])
 
+
+@hook(['quit', 'terminate', 'shutdown', 'stop'])
 def quit(code, input):
     '''Quit from the server. This is an owner-only command.'''
-    # Can only be done in privmsg by the owner
-    if input.sender.startswith('#'): return
     if input.owner:
         code.write(['QUIT'], 'Terminating Bot.')
         __import__('os')._exit(0)
-quit.cmds = ['quit', 'terminate', 'shutdown', 'stop']
-quit.priority = 'low'
 
+
+@hook(['name', 'nick', 'nickname'])
 def nick(code, input):
     '''Change nickname dynamically. This is an owner-only command.'''
     global defaultnick
     if not defaultnick:
         defaultnick = code.nick
-    if input.owner:
-        if code.changenick(input.group(2)):
-            code.changenick(input.group(2))
+    if not input.owner: return
+    if code.changenick(input.group(2)):
+        code.changenick(input.group(2))
+        pass
+    else:
+        code.say('Failed to change username! Trying default!')
+        if code.changenick(defaultnick):
+            code.changenick(defaultnick)
             pass
         else:
-            code.say('Failed to change username! Trying default!')
-            if code.changenick(defaultnick):
-                code.changenick(defaultnick)
-                pass
-            else:
-                code.say('Failed to set default, shutting down!')
-                __import__('os')._exit(1)
-    else:
-        return
-nick.cmds = ['name', 'nick', 'nickname']
-nick.priority = 'low'
+            code.say('Failed to set default, shutting down!')
+            __import__('os')._exit(1)
 
+
+@rule(['msg', 'say'], r'(?i)(#?\S+) (.+)')
 def msg(code, input):
     '''Send a message to a channel, or a user. Admin-only.'''
-    # Can only be done in privmsg by an admin
-    if input.sender.startswith('#'): return
     a, b = input.group(2), input.group(3)
     if (not a) or (not b): return
     if not input.owner:
@@ -89,13 +82,11 @@ def msg(code, input):
             helper = True
     if input.admin or helper:
         code.msg(a, b)
-msg.rule = (['msg', 'say'], r'(?i)(#?\S+) (.+)')
-msg.priority = 'low'
 
+
+@rule(['me', 'action'], r'(?i)(#?\S+) (.+)')
 def me(code, input):
     '''Send a raw action to a channel/user. Admin-only.'''
-    # Can only be done in privmsg by an admin
-    if input.sender.startswith('#'): return
     a, b = input.group(2), input.group(3)
     helper = False
     if a in code.config.helpers and (input.host in code.config.helpers[a] or (input.nick).lower() in code.config.helpers[a]):
@@ -104,25 +95,22 @@ def me(code, input):
         if a and b:
             msg = '\x01ACTION %s\x01' % input.group(3)
             code.msg(input.group(2), msg, x=True)
-me.rule = (['me', 'action'], r'(?i)(#?\S+) (.+)')
-me.priority = 'low'
 
+
+@hook(['announce', 'broadcast'], 'announce Some important message here')
 def announce(code, input):
     '''Send an announcement to all channels the bot is in'''
-    if not input.admin:
-        code.reply('Sorry, I can\'t let you do that')
-        return
+    if not admin(code, input): return
     print code.channels
     for channel in code.channels:
         code.msg(channel, code.color('purple', code.bold('[ANNOUNCMENT] ')) + input.group(2))
-announce.cmds = ['announce', 'broadcast']
-announce.example = '.announce Some important message here'
 
+
+@hook(['blocks'])
+@thread(False)
 def blocks(code, input):
     '''Command to add/delete user records, for a filter system. This is to prevent users from abusing Code.'''
-    if not input.admin:
-        return code.reply(code.color('red','You are not authorized to use this feature!'))
-
+    if not admin(code, input): return
     if not os.path.isfile('blocks'):
         blocks = open('blocks', 'w')
         blocks.write('\n')
@@ -220,16 +208,15 @@ def blocks(code, input):
     blocks.write(nicks_str)
     blocks.close()
 
-blocks.cmds = ['blocks']
-blocks.priority = 'low'
-blocks.thread = False
-
 char_replace = {
         r'\x01': chr(1),
         r'\x02': chr(2),
         r'\x03': chr(3),
         }
 
+@hook(['write', 'raw'])
+@priority('high')
+@thread(False)
 def write_raw(code, input):
     '''Send a raw command ot the server. WARNING THIS IS DANGEROUS! Owner-only.'''
     if not input.owner: return
@@ -247,12 +234,10 @@ def write_raw(code, input):
     elif a:
         b = a[0].split()
         code.write([b[0].strip()], u' '.join(b[1:]), raw=True)
-        status = True
+        status = True 
     if status:
         code.reply('Message sent to server.')
-write_raw.cmds = ['write', 'raw']
-write_raw.priority = 'high'
-write_raw.thread = False
+
 
 if __name__ == '__main__':
     print __doc__.strip()
