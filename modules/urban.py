@@ -4,6 +4,7 @@ Code Copyright (C) 2012-2013 Liam Stanley
 minecraft.py - Code Urban Dictionary Module
 http://code.liamstanley.net/
 """
+# http://api.urbandictionary.com/v0/define?term=
 
 import urllib2
 import re
